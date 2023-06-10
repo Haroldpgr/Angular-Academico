@@ -1,0 +1,11 @@
+<div *ngIf="materia">
+<h2>Materia de {{materia.name | uppercase}}, Codigo de la materia {{materia.codigo}}, creditos para  {{materia.creditos}}</h2>
+    <div><span>id: </span>{{materia.id}}</div>
+    <div>
+      <label for="materia-name"> materia name: </label>
+      <input id="materia-name" [(ngModel)]="materia.name" placeholder="name">
+      <div>codigo: {{materia.codigo}}</div>
+      <div>creditos: {{materia.creditos}}</div>
+    </div>
+  </div>
+  

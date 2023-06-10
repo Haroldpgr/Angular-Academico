@@ -1,0 +1,175 @@
+1: Creamos una carpeta donde guardaremos nuestra app
+
+2: Abrimos la carpeta desde vscode o con alguna terminar usando el comando (cd y el nombre que tiene la carpeta)
+
+3: Hacemos el comando ng new  angular-(el nombre que deseamos poner)
+
+4: Siguente hacemos el comando npm install y despues  npm start
+
+5: Dentro de nuestra carpeta entramos a src, luego a app 
+
+6: Abrimos app.component.tsy cambie el titulo(title) de la propiedad a (El que deses poner)
+
+7: Abrimos app.component.html y elimine la plantilla predeterminada. Reemplácelo con la siguiente línea de HTML.(<h1>{{title}}</h1>)
+
+8: Abrimos app.component.css y agregas los estilos que gustes, Ejemplo :
+h1 {
+ color: #369;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 250%;
+}
+
+9: Ejecutar comando ng generate component (El nombre que gustes).
+
+10: Se generan varios componentes para nuestra app
+
+11: Vamos a el componente  que creamos ejemplo (materia.component.ts) y agregamos una propiedad con el nombre que gustes y = 'Windstorm';
+
+12: Luego vamos al html de ese componente y pegamos esto : <h2>{{materia}}</h2> (En el medio va el nombre que puciste con el windstorm)
+
+13: Creamos un interfas  en src/app, Ejemplo(materia.ts)
+
+14: Agregamos Ejemplo: 
+export interface materia {
+  id: number;
+  name: string;
+}
+le puedes agregar mas cosas
+
+15: luego vamos a el (Nombre que le puciste).component.ts  y cambiamos el export Ejemplo.
+
+import { Materia } from '../materia';
+....
+...
+..
+export class HeroesComponent {  
+ materia: Materia = {
+    id: 1,
+    name: 'Windstorm'
+  };
+}
+
+
+16: Luego vamos a nuestro component.html y vamos a mostar objetos Ejemplo. 
+<h2>{{hero.name | uppercase}} Details</h2>
+
+<div><span>id: </span>{{materia.id}}</div>
+<div><span>name: </span>{{materia.name}}</div>
+
+
+17: Creamos el un archivo en src/app llamado mock-name que quieras.ts
+
+18: Ejemplo sobre lo que ira en este archivo: 
+import { Materia} from './materia';
+
+export const MATERIAS: Materia[] = [
+  { id: 12, name: 'Dr. Nice' },
+];
+
+19: Luego nos dirigimos a nuestro component.ts y agregamos Ejemplo:
+import { MATERIA } from '../mock-materia';
+
+y en la clase agregamos esto:
+
+export class MateriaComponent {
+
+  heroes = MATERIA;
+}
+
+20: Agregamos en nuestro html un directiva de angular *ngFor, Ejemplo:
+
+<h2> MATERIAS </h2>
+<ul class="materia">
+    <li *ngFor="let materia of materias"> Aqui es dnde ira ese cambio del directorio 
+        <button [class.selected]="materia === selectedMateria" type="button" (click)="onSelect(materia)">
+      <span class="badge">{{materia.id}}</span>
+      <span class="name">{{materia.name}}</span>
+    </button>
+  </li>
+</ul>     
+
+21: Luego en nuestra carpeta materia.componentes.ts y revisamos que esten todos los @component
+
+22: Luego agregue el siguiente onSelect()método, que asigna el materia en el que se hizo clic de la plantilla al archivo selectedMateria
+
+23: Agregamos una sección de detalles, En el momento de hacer click mostrara los detalles de las (materias).
+ Ejemplos:
+
+<div *ngIf="selectedHero">
+  <h2>{{selectedHero.name | uppercase}} Details</h2>
+  <div>id: {{selectedHero.id}}</div>
+  <div>
+    <label for="hero-name">Hero name: </label>
+    <input id="hero-name" [(ngModel)]="selectedHero.name" placeholder="name">
+  </div>
+</div>
+
+24 Luego modificamos nuestro button, Ejemplo: <button [class.selected]="materia === selectedMateria"
+
+25:Luego generamos el materia-detail, De esta manera (ng generate component materia-detail).
+
+26:Luego la parte inferior de nuestro html lo cortamos y lo pegamos en nuestro html-detail.
+
+27: Luego agregamos un import en nuestro detail.ts, Ejemplo:
+
+import { Materia } from '../materia';
+
+y al import que ya estaba le agregamos un Input,
+y ese Input se pondria tambien  en la class se pondria de la siguiente forma
+@Input ()
+materia?:Materia;
+
+28:Luego en nuestro html donde cortamos una parte agregamos lo sieguiente :
+
+<app-materia-detail [materia]="selectedMateria"></app-mateia-detail>
+
+29: Luego generamos un servicio Ejemplo : en la terminal de vscode debes poner 
+ng generate service materia.
+
+Revisamos que este todo correcta mente 
+
+
+30:Importamos: Import materia y Import MATERIA,(de la manera que se han echo los Import)
+
+31: Despues agregamos un get luego de el constructor, de esta forma: 
+
+getMateria(): Materia[]{
+return MATERIA 
+}
+
+32: Luego en nuestra materia.component.ts, agregamos un import (import { MateriaService} form '../materia.service'; )
+y en nuestra class reemplace  la definicion de materia por una declaracion
+seria (materia  : Materia[] = [];).
+Luego debajo de el agregmos lo siguiente al contructor
+(private materiaService: MateriaService {}).
+
+33:Debejo de el agregamos un  ngInint de la siguiente forma
+ngInint():void {
+this.getMateria();
+}
+
+34: En la parte inferior agregamos un get de la siguiente forma
+
+getMateria(): void {
+this.materia = this.materiaService.getMateria();
+}
+
+35: En materia.service.ts agregamos un import de la siguiente forma
+import {Observable, of} form 'rxjs'
+y el get lo modificamos
+
+getMateria() : Observable<Materia[]>{
+ const materia = of (MATERIA);
+ return materia;
+} 
+
+36:Modificamos el get que se encuentra en materia.component.ts
+getMateria(): void{
+ this.materiaService.getMateria()
+ .subscribe(materia => this.materia = materia);
+
+}
+
+37:
+
+ 

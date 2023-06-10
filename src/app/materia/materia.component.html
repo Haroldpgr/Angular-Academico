@@ -7,13 +7,5 @@
     </button>
   </li>
 </ul>
-<div *ngIf="selectedMateria">
-    <h2>Materia de {{selectedMateria.name | uppercase}}, Codigo de la materia {{selectedMateria.codigo}}, creditos para  {{selectedMateria.creditos}}</h2>
-    <div>id: {{selectedMateria.id}}</div>
-    <div>
-      <label for="materia-name"> materia name: </label>
-      <input id="materia-name" [(ngModel)]="selectedMateria.name" placeholder="name">
-      <div>codigo: {{selectedMateria.codigo}}</div>
-      <div>creditos: {{selectedMateria.creditos}}</div>
-    </div>
-  </div>
+
+<app-materia-detail [materia]="selectedMateria"></app-materia-detail>
