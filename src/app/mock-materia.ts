@@ -9,5 +9,6 @@ export const MATERIA: Materia[] = [
   { id: 17, name: 'Ciclo de vida' , codigo: 465 , creditos:  " Laura"},
   { id: 18, name: 'Auditoría' , codigo: 257 , creditos:  "Jorge"},
   { id: 19, name: 'Anatomía' , codigo: 342 , creditos:  "Maria"},
-  { id: 20, name: 'Dibujo Arquitectónico' , codigo: 157 , creditos: "Santiago" }
+  { id: 20, name: 'Dibujo Arquitectónico' , codigo: 157 , creditos: "Santiago" },
+  {id: 21, name:' Prueba' , codigo: 325, creditos: "8"}
 ];

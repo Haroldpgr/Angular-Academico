@@ -8,11 +8,17 @@ import { MessageService } from './message.service';
 })
 export class MateriaService {
 
-  constructor(private messageService: MessageService) { }
+  constructor(private messageService: MessageService) {
+   }
 
-getMateria(): Observable<Materia[]>{
+getMaterias(): Observable<Materia[]>{
   const materia = of (MATERIA);
  this.messageService.add('MateriaService: fetched materia');
   return materia;
+}
+getMateria(id: number): Observable<Materia> {
+  const materia = MATERIA.find(h => h.id === id)!;
+  this.messageService.add(`MateriaService: fetched materia id=${id}`);
+  return of(materia);
 }
 }

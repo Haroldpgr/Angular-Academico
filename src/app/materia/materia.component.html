@@ -1,11 +1,7 @@
- <h2> MATERIAS </h2>
-<ul class="materia">
+ <h2> materia </h2>
+<ul class="materias">
     <li *ngFor="let materia of materias">
-        <button [class.selected]="materia === selectedMateria" type="button" (click)="onSelect(materia)">
-      <span class="badge">{{materia.id}}</span>
-      <span class="name">{{materia.name}}</span>
-    </button>
+    <a routerLink="/detail/{{materia.id}}"></a>
+    <span class="badge">{{materia.id}}</span>{{materia.name}}
   </li>
 </ul>
-
-<app-materia-detail [materia]="selectedMateria"></app-materia-detail>

@@ -1,0 +1,7 @@
+<h2>Top Materia</h2>
+<div class="materias-menu">
+  <a *ngFor="let materia of materias"
+    routerLink ="/detail/{{materia.id}}">
+    {{materia.name}}
+  </a>
+</div>

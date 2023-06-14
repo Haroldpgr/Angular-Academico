@@ -3,9 +3,10 @@
     <div><span>id: </span>{{materia.id}}</div>
     <div>
       <label for="materia-name"> materia name: </label>
-      <input id="materia-name" [(ngModel)]="materia.name" placeholder="name">
+      <input id="materia-name" [(ngModel)]="materia.name" placeholder="materia-name"/>
       <div>codigo: {{materia.codigo}}</div>
       <div>creditos: {{materia.creditos}}</div>
     </div>
+    <button type="button" (click)="goBack()">go back</button>
   </div>
   
